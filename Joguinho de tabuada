@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main (){
+	
+	setlocale (LC_ALL, "Portuguese");
+	printf ("Trabalho de Raciocínio computacional\n\n");
+	printf ("\t\t---------------------------\n");
+	printf ("\t\t|*************************|\n");
+	printf ("\t\t|~~~~ Jogo da tabuada ~~~~|\n");
+	printf ("\t\t|*************************|\n");
+	printf ("\t\t---------------------------\n\n\n\n");
+	printf ("\t\tCriado por:\n\tJônatas de Souza dos Reis;\n\tRafael de Oliveira;\n\tDiego Augusto Nascimento.\n\n\n");
+	
+	char nome[50]; // string
+	int nivel1[10]; // vetores
+	int t, i, tentativa, resultadoDigitado, resultado, num1=0, num2=0, pontuacao1=0, pontuacao2=0, pontuacaoFinal=0; //variáveis
+	int lv1=1, lv2=2; //níveis
+	
+	printf ("Digite seu nome (sem caracteres especiais):\t");
+		scanf ("%s", &nome);
+	printf ("\nSeja bem vindo player %s!\n", nome);
+	printf ("\n\nNesse jogo, você terá que acertar as questões das tabuadas aleatórias que aparecerão, com 2 níveis de dificuldade.");
+	printf ("\nCada acerto equivale a 10 pontos no jogo, e você terá duas chances para jogar a partida, caso erre as duas, seu ponto será 0, caso erre na primeira chance,");
+	printf ("\nmas acerte na segunda, ganhará 5 pontos.\n");
+	printf ("\n\nINFORMAÇÕES SOBRE PONTUAÇÃO:\n\n");
+	printf ("\nO máximo de pontos é 120, caso você tire menos de 20, você foi RUIM, caso tire entre 20 e 60, você é REGULAR\n");
+	printf ("caso tire entre 60 e 100, você é ÓTIMO, e caso tire de 100 pra cima, você é ***MESTRE***");
+	printf ("\nAgora vamos para o primeiro nível do game! ;)\n\n\n");
+	
+	for (i=1; i<6; i++){
+		printf ("\n\n\nExercício %d, nível %d\n\n", i, lv1);
+				printf ("Primeira tentativa:\n");
+				printf ("[%d] x [%d] = ?\n", num1 = 2+rand()%8, num2 = 2+rand()%8);
+					scanf ("%d", &resultadoDigitado);
+				resultado = num1 * num2;
+					if (resultadoDigitado == resultado){
+						printf ("Você acertou!\n\n");
+						printf ("Pontuação + 10\n");
+						pontuacao1 = pontuacao1 + 10;
+					} else {
+						printf ("Você errou!\n");
+						printf ("Segunda tentativa:\n");
+						printf ("[%d] x [%d] = ?\n", num1 = 2+rand()%8, num2 = 2+rand()%8);
+							scanf ("%d", &resultadoDigitado);
+						resultado = num1 * num2;
+						if (resultadoDigitado == resultado){
+							printf ("Você acertou!\n\n");
+							printf ("\nPontuação + 5\n");
+							pontuacao1 = pontuacao1 + 5;
+						} else {
+							printf ("Você errou novamente!\n");
+							printf ("\n\nPontuação + 0\n");
+						}
+		}
+	}
+	
+	printf ("\n\nPontuação do primeiro nível:\t%d", pontuacao1);
+	
+	for (i=1; i<6; i++){
+		printf ("\n\n\nExercício %d, nível %d\n\n", i, lv2);
+				printf ("Primeira tentativa:\n");
+				printf ("[%d] x [%d] = ?\n", num1 = 2+rand()%8, num2 = 9+rand()%91);
+					scanf ("%d", &resultadoDigitado);
+				resultado = num1 * num2;
+					if (resultadoDigitado == resultado){
+						printf ("Você acertou!\n\n");
+						printf ("Pontuação + 10\n");
+						pontuacao2 = pontuacao2 + 10;
+					} else {
+						printf ("Você errou!\n");
+						printf ("Segunda tentativa:\n");
+						printf ("[%d] x [%d] = ?\n", num1 = 2+rand()%8, num2 = 9+rand()%91);
+							scanf ("%d", &resultadoDigitado);
+						resultado = num1 * num2;
+						if (resultadoDigitado == resultado){
+							printf ("Você acertou!\n\n");
+							printf ("Pontuação + 5\n");
+							pontuacao2 = pontuacao2 + 5;
+						} else {
+							printf ("Você errou novamente!\n");
+							printf ("\nPontuação + 0\n");
+						}
+		}
+	}
+	
+	printf ("\n\nPontuação do segundo nível:\t%d", pontuacao2);
+
+	pontuacaoFinal = pontuacaoFinal + pontuacao1 + pontuacao2;
+	printf ("\n\n\n%s, sua pontuação final foi:\t%d\n\n", nome, pontuacaoFinal);
+	
+	if (pontuacaoFinal < 20){
+		printf ("Você foi classificado como RUIM.\n\n");
+	}
+	if (pontuacaoFinal > 20 && pontuacaoFinal < 60){
+		printf ("Você foi classificado como REGULAR.\n\n");
+	}
+	if (pontuacaoFinal > 60 && pontuacaoFinal < 100){
+		printf ("Você foi classificado como ÓTIMO.\n\n");
+	}
+	if (pontuacaoFinal > 100 && pontuacaoFinal <= 120){
+		printf ("Você foi classificado como ***MESTRE***.\n\n");
+	}
+	
+	
+	
+	printf ("\n\n");
+	system ("pause");
+}
