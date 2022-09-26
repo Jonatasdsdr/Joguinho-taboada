@@ -12,7 +12,7 @@ int main (){
 	printf ("\t\t|~~~~ Jogo da tabuada ~~~~|\n");
 	printf ("\t\t|*************************|\n");
 	printf ("\t\t---------------------------\n\n\n\n");
-	printf ("\t\tCriado por:\n\tJônatas de Souza dos Reis;\n\tRafael de Oliveira;\n\tDiego Augusto Nascimento.\n\n\n");
+	printf ("\t\tCriado por:\n\tJônatas de Souza dos Reis\n\n\n");
 	
 	char nome[50]; // string
 	int nivel1[10]; // vetores
